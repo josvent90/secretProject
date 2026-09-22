@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/pickup/Coin.cs" id="1_coin"]
+[ext_resource type="Texture2D" path="res://assets/Spritesheet/roguelikeSheet_transparent.png" id="2_sheet"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_coin"]
+atlas = ExtResource("2_sheet")
+region = Rect2(697, 187, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_coin"]
+radius = 7.0
+
+[node name="Coin" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+monitoring = true
+monitorable = false
+script = ExtResource("1_coin")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("AtlasTexture_coin")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_coin")

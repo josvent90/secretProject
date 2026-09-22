@@ -9,6 +9,16 @@ Proyecto inicial de Godot 4.7 con C# para el repositorio [josvent90/secretProjec
 
 `D:\Godot\Godot.exe` es el editor estándar y no carga scripts `.cs`. Este proyecto se abre con el ejecutable de `C:\GodotMono`.
 
+## Jugar
+
+En la pantalla de título, pulsa Enter. En el nivel:
+
+- A o flecha izquierda, y D o flecha derecha, para moverte.
+- Espacio, W o flecha arriba para saltar.
+- Recoge las 3 monedas y entra en la puerta.
+
+Los bloques, las monedas y la puerta salen del Roguelike/RPG pack de [Kenney](https://kenney.nl/assets/roguelike-rpg-pack) (CC0). Esa hoja es de vista cenital, así que el personaje de perfil está en `assets/player/player.png`.
+
 ## Abrir y ejecutar
 
 1. Abre `project.godot` con el editor .NET de Godot 4.7.
@@ -26,9 +36,14 @@ dotnet build SecretProject.csproj
 ## Estructura
 
 ```
-scenes/main/Main.tscn    escena principal
-scripts/main/Main.cs     script C# de esa escena
-assets/                  arte, audio y otras fuentes importadas
+scenes/main/Main.tscn       pantalla de título
+scenes/level/Level.tscn     nivel de plataformas
+scenes/player/Player.tscn   jugador
+scenes/pickup/Coin.tscn     moneda
+scenes/goal/Goal.tscn       puerta
+assets/Spritesheet/         hoja Kenney, 16×16 con 1 px de separación
+assets/Map/                 mapas de ejemplo; el nivel no los usa
+assets/player/player.png    personaje de perfil, dos frames
 ```
 
 Las instrucciones para agentes de código están en `AGENT.md`.

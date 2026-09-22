@@ -33,18 +33,28 @@ No hagas push, ni abras pull requests, ni cambies la visibilidad del remoto salv
 ## Mapa del repositorio
 
 ```
-project.godot                 nombre SecretProject, escena principal, features 4.7 / C# / Forward Plus
+project.godot                 SecretProject, viewport 320×180, ventana 1280×720, nearest
 SecretProject.csproj          Sdk Godot.NET.Sdk/4.7.2, net8.0, net9.0 solo en Android
 SecretProject.sln             configuraciones Debug, ExportDebug y ExportRelease
 icon.svg                      icono de proyecto (icono por defecto de Godot, licencia MIT)
 icon.svg.import               metadatos de importación; se versiona
-scenes/main/Main.tscn         escena principal, 1280x720
+scenes/main/Main.tscn         pantalla de título; Enter carga el nivel
 scripts/main/Main.cs          script de esa escena, clase Main
-assets/                       arte, audio y demás fuentes. Vacío salvo .gitkeep
+scenes/level/Level.tscn       nivel de plataformas
+scripts/level/Level.cs        arma el TileSet y pinta el mapa
+scenes/player/Player.tscn     CharacterBody2D y cámara
+scripts/player/Player.cs
+scenes/pickup/Coin.tscn
+scripts/pickup/Coin.cs
+scenes/goal/Goal.tscn
+scripts/goal/Goal.cs
+assets/Spritesheet/           Kenney Roguelike/RPG pack, tiles 16×16 con 1 px de separación
+assets/Map/                   mapas de ejemplo de Tiled; el nivel no los carga
+assets/player/player.png      personaje de perfil, dos frames de 16×16
 .vscode/                      build y depuración. .gdignore evita que Godot importe esos JSON
 ```
 
-`run/main_scene` es `res://scenes/main/Main.tscn`. La ventana es 1280x720, stretch `canvas_items` / `expand`, renderer Forward+.
+`run/main_scene` es `res://scenes/main/Main.tscn`. El viewport lógico es 320×180 y la ventana 1280×720, stretch `canvas_items` / `keep`, `scale_mode` `integer`, filtro nearest. Renderer Forward+.
 
 El ensamblado se llama `SecretProject` (`dotnet/project/assembly_name`). No lo renombres sin renombrar también el `.csproj`, el `.sln` y la carpeta de salida.
 
